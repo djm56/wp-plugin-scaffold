@@ -1,0 +1,48 @@
+{
+  "_comment": "EXAMPLE — pro-only plugin, sold directly and never listed on WordPress.org. No \"free\" key, so --type free will refuse to run. WP.org fields are omitted because nothing here is submitted there.",
+
+  "family": "client-reports",
+
+  "brand": {
+    "vendor": "Acme Web Co",
+    "vendor_slug": "acme-web",
+    "author_uri": "https://example.com",
+    "css_prefix": "acme",
+    "menu_parent_label": "Acme Tools"
+  },
+
+  "license": "GPL-2.0-or-later",
+  "license_uri": "https://www.gnu.org/licenses/gpl-2.0.html",
+  "allow_free_upsell": false,
+  "requires_at_least": "6.0",
+  "tested_up_to": "6.8",
+  "requires_php": "8.0",
+
+  "pro": {
+    "name": "Acme Client Reports",
+    "slug": "acme-client-reports",
+    "text_domain": "acme-client-reports",
+    "description": "Scheduled PDF site-health reports for agency clients.",
+    "plugin_uri": "https://example.com/acme-client-reports",
+    "version": "1.0.0",
+    "constant_prefix": "ACMECR",
+    "option_key": "acmecr_options",
+    "namespace": "Acme_Client_Reports",
+    "main_class": "Plugin",
+    "module_class": "Module",
+    "settings_class": "Settings",
+    "plugin_file": "acme-client-reports.php",
+    "features": {
+      "analytics": true,
+      "admin_analytics": true,
+      "cron": true,
+      "meta_registration": false,
+      "bulk_actions": false,
+      "shortcode": false,
+      "ajax": true,
+      "has_css": true,
+      "has_js": true,
+      "frontend": false
+    }
+  }
+}

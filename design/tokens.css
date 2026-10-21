@@ -1,0 +1,65 @@
+/**
+ * Design tokens — the whole design system, deliberately this small.
+ *
+ * The standard (see design/README.md) is that a plugin looks like WordPress:
+ * screens are built from core admin markup, and custom CSS exists only for
+ * the handful of components core has no equivalent for. These variables are
+ * the complete vocabulary those components may use. If a screen needs a value
+ * that is not here, the answer is a core class, not a new token.
+ *
+ * UI colours are WordPress core's own values, named for what they MEAN, so no
+ * plugin ever hard-codes a hex and the family cannot drift apart one shade at
+ * a time. Brand red appears only where the standard allows it (wizard
+ * masthead, default PDF accent) — never on interactive controls, where red
+ * reads as danger, not as brand.
+ */
+
+:root {
+	/*
+	 * Brand — REPLACE THESE THREE with your own brand colour, taken from
+	 * your actual shipped logo rather than anyone's memory of it. Check the
+	 * contrast: the value below is 4.6:1 on white, which passes WCAG AA.
+	 *
+	 * Brand colour belongs on the wizard masthead and document accents only
+	 * — never on interactive controls, where a red reads as danger, not as
+	 * brand. Core's own button blue is correct for buttons.
+	 */
+	--wpps-brand: #e02830;
+	--wpps-brand-gradient-dark: #e02028;
+	--wpps-brand-gradient-light: #f06850;
+
+	/* Severity / status — WordPress core's own palette. */
+	--wpps-sev-critical: #d63638;
+	--wpps-sev-warning: #dba617;
+	--wpps-sev-good: #00a32a;
+	--wpps-sev-notice: #72aee6;
+
+	/* Status tints and their readable text colours — core's own badge
+		palette, for status-tinted surfaces (history rows, lock banners). */
+	--wpps-tint-critical: #fcf0f1;
+	--wpps-tint-warning: #fcf9e8;
+	--wpps-tint-good: #edfaef;
+	--wpps-sev-critical-dark: #b32d2e;
+	--wpps-sev-warning-dark: #8a6116;
+	--wpps-sev-good-dark: #00733f;
+
+	/* Neutrals — core's, named for their role. */
+	--wpps-text: #1d2327;
+	--wpps-text-secondary: #50575e;
+	--wpps-text-muted: #646970;
+	--wpps-border: #c3c4c7;
+	--wpps-border-subtle: #dcdcde;
+	--wpps-fill: #f0f0f1;
+	--wpps-fill-highlight: #f0f6fc;
+	--wpps-surface: #ffffff;
+
+	/* Spacing — core admin rhythm. */
+	--wpps-space-1: 4px;
+	--wpps-space-2: 8px;
+	--wpps-space-3: 12px;
+	--wpps-space-4: 16px;
+	--wpps-space-5: 20px;
+
+	/* Radius — match core (.postbox, .button). Nothing rounder. */
+	--wpps-radius: 2px;
+}

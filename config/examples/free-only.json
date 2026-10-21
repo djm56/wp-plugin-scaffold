@@ -1,0 +1,50 @@
+{
+  "_comment": "EXAMPLE — free-only plugin. No \"pro\" key, so there is no pro variant to generate. allow_free_upsell is false because there is nothing to upsell; leaving it true would emit an Upgrade page that goes nowhere.",
+
+  "family": "maintenance-mode",
+
+  "brand": {
+    "vendor": "Acme Web Co",
+    "vendor_slug": "acme-web",
+    "author_uri": "https://example.com",
+    "css_prefix": "acme",
+    "menu_parent_label": "Acme Tools"
+  },
+
+  "license": "GPL-2.0-or-later",
+  "license_uri": "https://www.gnu.org/licenses/gpl-2.0.html",
+  "contributor_usernames": "acmeweb",
+  "plugin_tags": "maintenance,coming-soon",
+  "allow_free_upsell": false,
+  "requires_at_least": "6.0",
+  "tested_up_to": "6.8",
+  "requires_php": "7.4",
+
+  "free": {
+    "name": "Acme Maintenance Mode",
+    "slug": "acme-maintenance-mode",
+    "text_domain": "acme-maintenance-mode",
+    "description": "Show a maintenance page to visitors while you work on the site.",
+    "plugin_uri": "https://example.com/acme-maintenance-mode",
+    "version": "1.0.0",
+    "constant_prefix": "ACMEMM",
+    "option_key": "acmemm_options",
+    "namespace": "Acme_Maintenance_Mode",
+    "main_class": "Plugin",
+    "module_class": "Module",
+    "settings_class": "Settings",
+    "plugin_file": "acme-maintenance-mode.php",
+    "features": {
+      "analytics": false,
+      "admin_analytics": false,
+      "cron": false,
+      "meta_registration": false,
+      "bulk_actions": false,
+      "shortcode": false,
+      "ajax": false,
+      "has_css": true,
+      "has_js": false,
+      "frontend": true
+    }
+  }
+}

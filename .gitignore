@@ -1,0 +1,20 @@
+# Generator output — scaffolds are generated, never committed here.
+/_generated/
+_generated/
+
+# Your real product configs. Example configs live in config/examples/ and ARE
+# tracked; anything dropped directly in config/ is assumed to be private
+# roadmap material. Delete these two lines if you want yours public.
+/config/*.json
+
+# PHP / Node
+vendor/
+node_modules/
+composer.lock
+package-lock.json
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

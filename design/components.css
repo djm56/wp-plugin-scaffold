@@ -1,0 +1,277 @@
+/**
+ * Shared components — the complete custom-component set.
+ *
+ * This file and tokens.css are the whole visual identity of a plugin's
+ * admin. Everything else on a screen is core WordPress markup, on purpose:
+ * core supplies layout, focus states, responsive behaviour, and admin colour
+ * scheme support, and these few components exist only because core has no
+ * equivalent. The canonical rules live in
+ * design/README.md §5.
+ *
+ * VENDORING RULE: every plugin in a family ships a byte-identical copy of this file
+ * and tokens.css, enqueued before its own admin.css (tokens → components →
+ * plugin css). Each plugin's package.sh verifies the checksum against this
+ * original, so the family cannot drift apart one rule at a time. Edit HERE,
+ * then re-copy — never edit a vendored copy.
+ *
+ * Extracted from a production plugin and generalised; measurements
+ * deliberately match core components
+ * (tile borrows .postbox's surface and border; pill radius matches core
+ * badges) so these read as part of the admin, not as widgets dropped into it.
+ */
+
+/* ── Card — one card style for the whole family ────────────────────────── */
+
+.wpps-card {
+	max-width: 100%;
+	margin-top: var(--wpps-space-4);
+	padding: var(--wpps-space-5);
+	background: var(--wpps-surface);
+	border: 1px solid var(--wpps-border);
+	border-radius: var(--wpps-radius);
+}
+
+/* ── Score readout ─────────────────────────────────────────────────────── */
+
+.wpps-score {
+	display: flex;
+	align-items: baseline;
+	gap: var(--wpps-space-1);
+	line-height: 1;
+	margin: 0 0 var(--wpps-space-2);
+}
+
+.wpps-score-value {
+	font-size: 48px;
+	font-weight: 600;
+}
+
+.wpps-score-of {
+	font-size: 18px;
+	color: var(--wpps-text-muted);
+}
+
+.wpps-score-good .wpps-score-value {
+	color: var(--wpps-sev-good);
+}
+
+.wpps-score-fair .wpps-score-value {
+	color: var(--wpps-sev-warning);
+}
+
+.wpps-score-poor .wpps-score-value {
+	color: var(--wpps-sev-critical);
+}
+
+/* ── Severity utilities — same three words, same colours, everywhere ──── */
+
+.wpps-sev-critical {
+	color: var(--wpps-sev-critical);
+}
+
+.wpps-sev-warning {
+	color: var(--wpps-sev-warning);
+}
+
+/* Notice TEXT uses the muted neutral, not the notice blue: the blue is an
+	accent colour (borders, fills) and does not meet text contrast on white. */
+.wpps-sev-notice {
+	color: var(--wpps-text-muted);
+}
+
+.wpps-sev-good {
+	color: var(--wpps-sev-good);
+}
+
+/* ── Pill — small status/severity badge ────────────────────────────────── */
+
+.wpps-pill {
+	display: inline-block;
+	padding: 1px 7px;
+	border-radius: 3px;
+	background: var(--wpps-fill);
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.wpps-pill.wpps-score-good {
+	color: var(--wpps-sev-good);
+}
+
+.wpps-pill.wpps-score-fair {
+	color: var(--wpps-sev-warning);
+}
+
+.wpps-pill.wpps-score-poor {
+	color: var(--wpps-sev-critical);
+}
+
+/* ── Tiles — headline stats, linkable ──────────────────────────────────── */
+
+.wpps-tiles {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: var(--wpps-space-2);
+	margin: var(--wpps-space-4) 0;
+}
+
+.wpps-tile {
+	display: block;
+	padding: var(--wpps-space-3) 14px;
+	background: var(--wpps-surface);
+	border: 1px solid var(--wpps-border);
+	border-radius: var(--wpps-radius);
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Focus/hover borrows core's focus blue so keyboard users see the same
+	affordance core gives them everywhere else. */
+a.wpps-tile:hover,
+a.wpps-tile:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.wpps-tile-value {
+	display: block;
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+.wpps-tile-label {
+	display: block;
+	margin-top: 2px;
+	font-size: 12px;
+	color: var(--wpps-text-muted);
+}
+
+/* ── Jump-to-a-problem bar ─────────────────────────────────────────────── */
+/* Rule: only kinds actually present get a button — a bar where most buttons
+	lead to empty lists is worse than no bar. */
+
+.wpps-nav-bar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: var(--wpps-space-3) 0 var(--wpps-space-4);
+}
+
+.wpps-nav-bar .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.wpps-count {
+	display: inline-block;
+	min-width: 18px;
+	padding: 0 5px;
+	border-radius: 9px;
+	background: var(--wpps-fill);
+	font-size: 11px;
+	font-weight: 600;
+	text-align: center;
+}
+
+/* A count inside a primary button needs its own surface to stay legible
+	against the blue. */
+.wpps-nav-bar .button-primary .wpps-count {
+	background: rgba(255, 255, 255, 0.85);
+}
+
+/* ── The "why this matters" sentence ──────────────────────────────────── */
+/* Given weight because it is the line that decides whether a finding gets
+	acted on; a report that explains itself in passing gets skimmed past. */
+
+.wpps-why {
+	max-width: 46em;
+	border-left: 4px solid var(--wpps-sev-notice);
+	padding: 2px 0 2px var(--wpps-space-3);
+	margin: var(--wpps-space-2) 0 var(--wpps-space-3);
+	color: var(--wpps-text);
+}
+
+/* ── Help sections ─────────────────────────────────────────────────────── */
+/* scroll-margin-top keeps an anchored heading clear of the admin bar, which
+	otherwise covers the very heading the deep link was aimed at. */
+
+.wpps-help-section {
+	max-width: 52em;
+	padding: var(--wpps-space-1) 0 var(--wpps-space-3);
+	border-bottom: 1px solid var(--wpps-border-subtle);
+	scroll-margin-top: 48px;
+}
+
+.wpps-help-section:target h3 {
+	background: var(--wpps-fill-highlight);
+	box-shadow: -6px 0 0 var(--wpps-fill-highlight), 6px 0 0 var(--wpps-fill-highlight);
+}
+
+.wpps-help-section h3 {
+	margin-bottom: var(--wpps-space-1);
+}
+
+.wpps-help-section > p > code {
+	font-size: 11px;
+	color: var(--wpps-text-muted);
+	background: var(--wpps-fill);
+}
+
+/* ── Wizard chrome (first-activation onboarding) ───────────────────────── */
+/* The one place brand red is allowed in the admin: the masthead strip that
+	says which product is welcoming you. Everything below it is core UI. */
+
+.wpps-wizard {
+	max-width: 720px;
+	margin: var(--wpps-space-5) auto;
+}
+
+.wpps-wizard-masthead {
+	padding: var(--wpps-space-4) var(--wpps-space-5);
+	background: var(--wpps-surface);
+	border: 1px solid var(--wpps-border);
+	border-top: 3px solid var(--wpps-brand);
+	border-radius: var(--wpps-radius) var(--wpps-radius) 0 0;
+}
+
+.wpps-wizard-masthead h1 {
+	margin: 0;
+	font-size: 20px;
+	line-height: 1.3;
+}
+
+.wpps-wizard-step {
+	padding: var(--wpps-space-5);
+	background: var(--wpps-surface);
+	border: 1px solid var(--wpps-border);
+	border-top: 0;
+}
+
+.wpps-wizard-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wpps-space-2);
+	padding: var(--wpps-space-4) var(--wpps-space-5);
+	background: var(--wpps-fill);
+	border: 1px solid var(--wpps-border);
+	border-top: 0;
+	border-radius: 0 0 var(--wpps-radius) var(--wpps-radius);
+}
+
+.wpps-wizard-progress {
+	color: var(--wpps-text-muted);
+	font-size: 12px;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+@media screen and (max-width: 782px) {
+	.wpps-score-value {
+		font-size: 36px;
+	}
+}

@@ -1,0 +1,78 @@
+{
+  "_comment": "EXAMPLE — free + pro pair. Copy this file, change every value, and keep your real configs out of this repository if your product roadmap is not public.",
+
+  "family": "seo-links",
+
+  "brand": {
+    "vendor": "Acme Web Co",
+    "vendor_slug": "acme-web",
+    "author_uri": "https://example.com",
+    "css_prefix": "acme",
+    "menu_parent_label": "Acme Tools"
+  },
+
+  "license": "GPL-2.0-or-later",
+  "license_uri": "https://www.gnu.org/licenses/gpl-2.0.html",
+  "contributor_usernames": "acmeweb",
+  "plugin_tags": "seo,links,internal-linking",
+  "allow_free_upsell": true,
+  "requires_at_least": "6.0",
+  "tested_up_to": "6.8",
+  "requires_php": "7.4",
+
+  "free": {
+    "name": "Acme SEO Links",
+    "slug": "acme-seo-links",
+    "text_domain": "acme-seo-links",
+    "description": "Manage internal linking rules across your content.",
+    "plugin_uri": "https://example.com/acme-seo-links",
+    "version": "1.0.0",
+    "constant_prefix": "ACMESL",
+    "option_key": "acmesl_options",
+    "namespace": "Acme_Seo_Links",
+    "main_class": "Plugin",
+    "module_class": "Module",
+    "settings_class": "Settings",
+    "plugin_file": "acme-seo-links.php",
+    "features": {
+      "analytics": false,
+      "admin_analytics": false,
+      "cron": false,
+      "meta_registration": true,
+      "bulk_actions": false,
+      "shortcode": false,
+      "ajax": false,
+      "has_css": true,
+      "has_js": false,
+      "frontend": false
+    }
+  },
+
+  "pro": {
+    "name": "Acme SEO Links Pro",
+    "slug": "acme-seo-links-pro",
+    "text_domain": "acme-seo-links-pro",
+    "description": "Advanced placement rules, auditing, and reporting for internal links.",
+    "plugin_uri": "https://example.com/acme-seo-links-pro",
+    "version": "1.0.0",
+    "constant_prefix": "ACMESLP",
+    "option_key": "acmeslp_options",
+    "namespace": "Acme_Seo_Links_Pro",
+    "main_class": "Plugin",
+    "module_class": "Module",
+    "settings_class": "Settings",
+    "plugin_file": "acme-seo-links-pro.php",
+    "features": {
+      "analytics": true,
+      "admin_analytics": true,
+      "cron": true,
+      "meta_registration": true,
+      "bulk_actions": true,
+      "shortcode": false,
+      "ajax": true,
+      "has_css": true,
+      "has_js": true,
+      "frontend": false
+    }
+  }
+}
